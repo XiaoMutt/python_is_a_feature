@@ -22,7 +22,9 @@ t12 = (i for i in range(10))  # TRAP: this creates a generator but not a tuple o
 
 import numpy as np
 
-np.array(i for i in range(10))  # TRAP: this creates an array with one generator element in it.
+np.array(i ** 2 for i in range(10))  # TRAP: this creates an array with 1 generator element in it.
+np.argmax(i ** 2 for i in range(10))  # TRAP: this always return 0: it argmax from 1 generator element with index 0
+np.array(range(10))  # OK
 
 ####
 # {} are the literal for both dict and set
