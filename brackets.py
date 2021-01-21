@@ -20,6 +20,10 @@ t11 = ((1,),) * 8  # this creates a tuple of eight (1,) tuples
 # * This makes things even more confusing and usages of () dangerous * #
 t12 = (i for i in range(10))  # TRAP: this creates a generator but not a tuple of 0-9 elements; see below for {} and []
 
+import numpy as np
+
+np.array(i for i in range(10))  # TRAP: this creates an array with one generator element in it.
+
 ####
 # {} are the literal for both dict and set
 ####
