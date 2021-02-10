@@ -45,3 +45,29 @@ def outside():
     inside1()
     inside2()
 
+
+# closure and the "self" keyword.
+# The closured variable is immutable, and the self keyword is used to refer to the object itself (kind of, but not
+# really, since it is passed in as a variable).
+# when use self in closure it may create unexpected results.
+from copy import deepcopy
+
+
+class A(object):
+    def __init__(self, fun):
+        self.fun = fun
+
+
+class B(A):
+    def __init__(self, value):
+        # self is set to the value when __init__ runs
+        # it's not always pointing to the real self object. for example, when deepcopy is used.
+        super(B, self).__init__(fun=lambda: self.value)
+        self.value = value
+
+
+b1 = B(1)
+print(b1.fun())  # =1
+b2 = deepcopy(b1)  # deepcopy: the self variable in the above lambda is still pointing to b1
+b2.value = 2
+print(b2.fun())  # =1
