@@ -28,3 +28,10 @@ for n in l0:
     print(n)
     l0.remove(n)  # no runtime error: lead to unexpected result
     # if use append, then the for loop never ends
+
+# r strings which treats \ as backslash but not an escape command
+# however does it?
+print(r'\a\b\c')  # this works
+
+# add the backslash at the end will not work
+print(r'a\b\c\') # this is an error because of the last backslash

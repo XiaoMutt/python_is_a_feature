@@ -71,3 +71,4 @@ print(b1.fun())  # =1
 b2 = deepcopy(b1)  # deepcopy: the self variable in the above lambda is still pointing to b1
 b2.value = 2
 print(b2.fun())  # =1
+# use class methods instead of passing functions as variables
