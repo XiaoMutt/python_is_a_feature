@@ -4,5 +4,5 @@ These features make programming fast. However, also due to these features, you m
 careful. *python_is_a_feature* summarizes the traps you may encounter.
 
 Python is evolving. *python_is_a_feature* uses python3.8. Some "features" may disappear in later version of python, 
-but new exiting "features" may lead to new "traps". Stay tuned!
+but new "features" may lead to new "traps". Stay tuned!
 
