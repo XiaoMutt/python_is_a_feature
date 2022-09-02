@@ -1,5 +1,5 @@
 ################################
-# () are the literal for tuple but they have so many other usages which causes confusions and setup many traps.
+# () are the literal for tuple, but they have so many other usages which causes confusions and lead to traps.
 ################################
 
 t0 = ()  # this creates an empty tuple

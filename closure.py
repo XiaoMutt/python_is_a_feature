@@ -1,5 +1,5 @@
 # Python Closure Trap:
-# when nested function access variables of an outer function and a the nested function got returned by the outer
+# when nested function access variables of an outer function and the nested function got returned by the outer
 # function, the accessed variables will form closure in the nested function.
 # However, this does not work in the following example, when the outer function returns a list of nested functions:
 
@@ -40,7 +40,7 @@ for f in funs:
 #     }
 # }
 
-# For Python, the outer and nest functions has to be one-to-one, so the following works:
+# following pass the value of c to char and the closure works:
 
 def this_works():
     res = []

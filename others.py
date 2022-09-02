@@ -1,5 +1,5 @@
 # indent using mixture of space and tab will cause problem if you are not using an IDE
-# type the following into a python console, and it will raise run time error
+# type the following into a python console, and it will raise a run time error
 for i in range(10):
     j = i + 1  # the indent is 4 space
     print(j)  # the indent is 1 tab
@@ -27,11 +27,5 @@ l0 = list(range(10))
 for n in l0:
     print(n)
     l0.remove(n)  # no runtime error: lead to unexpected result
-    # if use append, then the for loop never ends
+    # if append is used here, then the for loop never ends
 
-# r strings which treats \ as backslash but not an escape command
-# however does it?
-print(r'\a\b\c')  # this works
-
-# add the backslash at the end will not work
-print(r'a\b\c\') # this is an error because of the last backslash

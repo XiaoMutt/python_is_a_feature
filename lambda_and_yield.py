@@ -1,4 +1,4 @@
-# yield turns a function to a generator
+# yield converts a function to a generator
 # can you create a generator using lambda and yield? seems logical
 
 # f0=lambda: yield 1 # this is a wrong expression
