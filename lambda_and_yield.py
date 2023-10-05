@@ -1,3 +1,6 @@
+
+t = lambda a: str: str(a)
+
 # yield converts a function to a generator
 # can you create a generator using lambda and yield? seems logical
 
