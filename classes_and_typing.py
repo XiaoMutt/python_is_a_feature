@@ -1,5 +1,7 @@
-# function and variables are treated as the same in class: they are all attributes
-# in addition, classes are dynamic:
+# The class definition body works like a halfwit function definition: in some way it works like a function but some
+# features are missing or changed.
+# Function and variables are treated as the same in class: they are all attributes.
+# In addition, classes are dynamic:
 #   - they are loaded as needed, no compiles, so circular typing will not work
 #   - you can add and delete their attribute at any time
 #   - so they are not real class which is a data type and should be static
@@ -21,8 +23,18 @@ class A(object):
     def helper():
         print("helper")
 
-    error = Attr(A.helper())  # error: cannot use the function in defining class either
+    Attr(lambda: 1)  # method call is allowed but has no effect unless the call made some changes to other attributes
+
+    ok = Attr(helper)  # this is OK
+    error = Attr(A.helper)  # error: cannot use the function in defining class either
     good = Attr(lambda: A.helper())  # but you can use the function indirectly by putting it in a lambda
+
+    @classmethod
+    def helper2(cls):
+        print("helper2")
+
+    not_ok = Attr(helper2)  # this looks ok, but actually is wrong, because helper2 is a classmethod object
+    really_ok = Attr(lambda: A.helper2())  # access helper2 through its class.
 
     FIRST = 1
     SECOND = FIRST + 1  # FIRST can be accessed here
@@ -51,7 +63,7 @@ class A(object):
     def decor(cls):
         return lambda x: x
 
-    @decor()  # the decor property can be used as decorator in the same class definiation
+    @decor()  # the decor property can be used as decorator in the same class definition
     def to_be_decorred(self):
         pass
 

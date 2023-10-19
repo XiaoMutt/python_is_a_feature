@@ -6,8 +6,8 @@ for i in range(10):
 
 
 # underscore
-# underscore is wildly used in python. Using underscore to separate words is pythonic
-# this leads to very long names and uncomfortable typing experience caused by underscore (pressed by the pinky finger)
+# The underscore is wildly used in python. Using underscores to separate words is pythonic.
+# This leads to very long names and uncomfortable typing experience caused by underscore (pressed by the pinky finger)
 def get_dict_of_a_to_b():
     a_to_b = dict()
     return a_to_b
@@ -29,3 +29,17 @@ for n in l0:
     l0.remove(n)  # no runtime error: lead to unexpected result
     # if append is used here, then the for loop never ends
 
+# The datetime format bug.
+# The %Y of the datetime format should represent a four-digit year (padded with 0 if necessary).
+# However, this is not true for all platforms. Probably depends on the backend C implementation.
+# This causes unexpected error when talking to other systems. E.g. frontend using the dayjs package
+from datetime import datetime
+
+datetime_year = datetime.strptime("0001", "%Y")  # parse the string year to datetime.
+string_year = datetime_year.strftime("%Y")  # format back to string: this becomes "1" in some platforms.
+print(string_year)
+
+# Use * as a spead operator in the for comprehension is an error
+items = [[1, 2, 3], [4, 5, 6]]
+# flattened = [*item for item in items]  # error
+flattened2 = [i for item in items for i in items]  # instead use 2 for comprehensions
