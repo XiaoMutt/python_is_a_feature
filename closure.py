@@ -79,12 +79,21 @@ funs = this_works()
 for f in funs:
     f()
 
-
 # Closure in class declaration
 # See also classes_and_typing.py
+gdata = 1
+
+
 def fun(data):
+    data = data
+
     class A:
         data = data  # error: variable data is declared in the class A scope, then try to assign its value to itself
+        gdata = gdata  # gdata is a global variable in the module, so it works????
 
     class B:
-        data_ = data  # change variable name then it works.
+        nonlocal data  # tell Python data is nonlocal then it works.
+        data = data
+        gdata = gdata
+
+    return A, B
